@@ -60,7 +60,6 @@ spec:
       - name: PRODUCT_CATALOG_SERVICE_ADDR
         value: "productcatalogservice:3550"
 
-
 ---
 apiVersion: v1
 kind: Service
@@ -74,6 +73,7 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -110,7 +110,6 @@ spec:
   - protocol: TCP
     port: 3550
     targetPort: 3550
-
 
 ---
 apiVersion: apps/v1
@@ -151,7 +150,6 @@ spec:
     port: 50051
     targetPort: 50051
 
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -191,7 +189,6 @@ spec:
     port: 7000
     targetPort: 7000
 
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -229,7 +226,6 @@ spec:
     port: 50051
     targetPort: 50051
 
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -246,7 +242,7 @@ spec:
     spec:
       containers:
       - name: service
-        image: https://gcr.io/google-samples/microservices-demo/adservice:v0.8.0
+        image: gcr.io/google-samples/microservices-demo/adservice:v0.8.0
         ports:
         - containerPort: 9555
       env:
@@ -267,7 +263,6 @@ spec:
     port: 9555
     targetPort: 9555
 
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -284,7 +279,7 @@ spec:
     spec:
       containers:
       - name: service
-        image: https://gcr.io/google-samples/microservices-demo/cartservice:v0.8.0
+        image: gcr.io/google-samples/microservices-demo/cartservice:v0.8.0
         ports:
         - containerPort: 7070
       env:
@@ -306,7 +301,6 @@ spec:
   - protocol: TCP
     port: 7070
     targetPort: 7070
-
 
 ---
 apiVersion: apps/v1
@@ -347,7 +341,8 @@ spec:
   - protocol: TCP
     port: 6379
     targetPort: 6379
-    ---
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -363,7 +358,7 @@ spec:
     spec:
       containers:
       - name: service
-        image: https://gcr.io/google-samples/microservices-demo/checkoutservice:v0.8.0
+        image: gcr.io/google-samples/microservices-demo/checkoutservice:v0.8.0
         ports:
         - containerPort: 5050
       env:
@@ -396,7 +391,6 @@ spec:
     port: 5050
     targetPort: 5050
 
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -413,14 +407,12 @@ spec:
     spec:
       containers:
       - name: service
-        image: https://gcr.io/google-samples/microservices-demo/frontend:v0.8.0
+        image: gcr.io/google-samples/microservices-demo/frontend:v0.8.0
         ports:
         - containerPort: 8080
       env:
       - name: PORT 
         value: "8080"
-      - name: PORT
-        value: "5050"
       - name: PRODUCT_CATALOG_SERVICE_ADDR
         value: "productcatalogservice:3550"
       - name: SHIPPING_SERVICE_ADDR
@@ -434,9 +426,10 @@ spec:
       - name: CART_SERVICE_ADDR
         value: "productcatalogservice:7070"
       - name: AD_SERVICE_ADDR
-        value: "adservie:955"
+        value: "adservice:9555"
       - name: CHECKOUT_SERVICE_ADDR
         value: "checkoutservice:5050"
+
 ---
 apiVersion: v1
 kind: Service
@@ -451,8 +444,4 @@ spec:
     port: 80
     targetPort: 8080
     nodePort: 30007
-
-
-
-
 
