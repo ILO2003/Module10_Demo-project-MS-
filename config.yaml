@@ -411,7 +411,7 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: PORT 
+        - name: PORT
           value: "8080"
         - name: PRODUCT_CATALOG_SERVICE_ADDR
           value: "productcatalogservice:3550"
@@ -424,11 +424,13 @@ spec:
         - name: CURRENCY_SERVICE_ADDR
           value: "currencyservice:7000"
         - name: CART_SERVICE_ADDR
-          value: "productcatalogservice:7070"
+          value: "cartservice:7070"
         - name: AD_SERVICE_ADDR
           value: "adservice:9555"
         - name: CHECKOUT_SERVICE_ADDR
           value: "checkoutservice:5050"
+        - name: RECOMMENDATION_SERVICE_ADDR
+          value: "recommendationservice:8080"
 
 ---
 apiVersion: v1
@@ -444,3 +446,4 @@ spec:
     port: 80
     targetPort: 8080
     nodePort: 30007
+
