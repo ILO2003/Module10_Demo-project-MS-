@@ -20,7 +20,6 @@ spec:
       env: 
       - name: PORT
         value: "8080"
-
 ---
 apiVersion: v1
 kind: Service
@@ -34,7 +33,6 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 8080
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -59,7 +57,6 @@ spec:
         value: "8080"
       - name: PRODUCT_CATALOG_SERVICE_ADDR
         value: "productcatalogservice:3550"
-
 ---
 apiVersion: v1
 kind: Service
@@ -73,7 +70,6 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -96,7 +92,6 @@ spec:
       env:
       - name: PORT
         value: "3550"
-
 ---
 apiVersion: v1
 kind: Service
@@ -110,7 +105,6 @@ spec:
   - protocol: TCP
     port: 3550
     targetPort: 3550
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -135,7 +129,6 @@ spec:
         value: "50051"
       - name: DISABLE_PROFILER
         value: "1"
-
 ---
 apiVersion: v1
 kind: Service
@@ -149,7 +142,6 @@ spec:
   - protocol: TCP
     port: 50051
     targetPort: 50051
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -174,7 +166,6 @@ spec:
         value: "7000"
       - name: DISABLE_PROFILER
         value: "1"
-
 ---
 apiVersion: v1
 kind: Service
@@ -188,7 +179,6 @@ spec:
   - protocol: TCP
     port: 7000
     targetPort: 7000
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -211,7 +201,6 @@ spec:
       env:
       - name: PORT
         value: "50051"
-
 ---
 apiVersion: v1
 kind: Service
@@ -225,7 +214,6 @@ spec:
   - protocol: TCP
     port: 50051
     targetPort: 50051
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -248,7 +236,6 @@ spec:
       env:
       - name: PORT
         value: "9555"
-
 ---
 apiVersion: v1
 kind: Service
@@ -262,7 +249,6 @@ spec:
   - protocol: TCP
     port: 9555
     targetPort: 9555
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -287,7 +273,6 @@ spec:
         value: "7070"
       - name: REDIS_ADDR
         value: "redis-cart:6379"
-
 ---
 apiVersion: v1
 kind: Service
@@ -301,7 +286,6 @@ spec:
   - protocol: TCP
     port: 7070
     targetPort: 7070
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -327,7 +311,6 @@ spec:
       volumes:
       - name: redis-data
         emptyDir: {}
-
 ---
 apiVersion: v1
 kind: Service
@@ -341,7 +324,6 @@ spec:
   - protocol: TCP
     port: 6379
     targetPort: 6379
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -376,7 +358,6 @@ spec:
         value: "currencyservice:7000"
       - name: CART_SERVICE_ADDR
         value: "productcatalogservice:7070"
-
 ---
 apiVersion: v1
 kind: Service
@@ -390,7 +371,6 @@ spec:
   - protocol: TCP
     port: 5050
     targetPort: 5050
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -413,6 +393,8 @@ spec:
       env:
       - name: PORT 
         value: "8080"
+      - name: PORT
+        value: "5050"
       - name: PRODUCT_CATALOG_SERVICE_ADDR
         value: "productcatalogservice:3550"
       - name: SHIPPING_SERVICE_ADDR
@@ -426,10 +408,9 @@ spec:
       - name: CART_SERVICE_ADDR
         value: "productcatalogservice:7070"
       - name: AD_SERVICE_ADDR
-        value: "adservice:9555"
+        value: "adservie:955"
       - name: CHECKOUT_SERVICE_ADDR
         value: "checkoutservice:5050"
-
 ---
 apiVersion: v1
 kind: Service
@@ -444,4 +425,3 @@ spec:
     port: 80
     targetPort: 8080
     nodePort: 30007
-
